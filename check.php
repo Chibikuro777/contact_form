@@ -51,5 +51,15 @@
     <p><?php echo $nickname_result; ?></p>
     <p><?php echo $email_result; ?></p>
     <p><?php echo $content_result; ?></p>
+
+    <form action="thanks.php" method="POST">
+        <input type="hidden" name="nickname" value="<?= $nickname ?>">
+        <input type="hidden" name="email" value="<?= $email ?>">
+        <input type="hidden" name="content" value="<?= $content ?>">
+        <button type="button" onclick="history.back()">戻る</button>
+        <?php if($nickname != ''&& $email !='' && $content != ''): ?>
+        <input type="submit" name="" value="OK">
+        <?php endif; ?>
+    </form>
 </body>
 </html>
