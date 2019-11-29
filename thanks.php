@@ -1,5 +1,6 @@
 <?php
 require_once('function.php');
+require_once('dbconnect.php');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: index.php');
@@ -9,6 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $email = $_POST['email'];
     $content = $_POST['content'];
     // 表示
+
+    $stmt = $dbh->prepare('INSERT INTO surveys (nickname, email, content) VALUES (?, ?, ?)');
+    $stmt->execute([$nickname, $email, $content]);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
