@@ -1,4 +1,6 @@
 <?php
+// ファイルの読み込み
+require_once('function.php');
 
 // echo '<pre>';
 // var_dump($_SERVER['REQUEST_METHOD']);
@@ -57,14 +59,14 @@
 </head>
 <body>
     <h1>入力内容確認</h1>
-    <p><?php echo $nickname_result; ?></p>
-    <p><?php echo $email_result; ?></p>
-    <p><?php echo $content_result; ?></p>
+    <p><?php echo h($nickname_result); ?></p>
+    <p><?php echo h($email_result); ?></p>
+    <p><?php echo h($content_result); ?></p>
 
     <form action="thanks.php" method="POST">
-        <input type="hidden" name="nickname" value="<?= $nickname ?>">
-        <input type="hidden" name="email" value="<?= $email ?>">
-        <input type="hidden" name="content" value="<?= $content ?>">
+        <input type="hidden" name="nickname" value="<?= h($nickname) ?>">
+        <input type="hidden" name="email" value="<?= h($email) ?>">
+        <input type="hidden" name="content" value="<?= h($content) ?>">
         <button type="button" onclick="history.back()">戻る</button>
         <?php if($nickname != ''&& $email !='' && $content != ''): ?>
         <input type="submit" name="" value="OK">
