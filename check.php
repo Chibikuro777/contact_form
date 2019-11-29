@@ -1,5 +1,14 @@
 <?php
-    $nickname = $_POST['nickname'];
+
+// echo '<pre>';
+// var_dump($_SERVER['REQUEST_METHOD']);
+// exit;
+    // POST送信ではなかったら、index.phpにリダイレクトする
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header('Location: index.php');
+    }
+
+    $nickname = $_POST['nickname']; //inputの[name]タグ
     // $_POST['nickname']
     // ユーザーが入力したニックネームが入ってる
     // POSTで送信されたデータは
